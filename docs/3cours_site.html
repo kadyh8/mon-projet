@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fianarana Teny Malagasy - Nos Cours</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #3700b3;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin: 40px auto;
+            padding: 20px;
+            max-width: 800px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .course-level {
+            margin-bottom: 20px;
+        }
+        .course-level label {
+            font-weight: bold;
+        }
+        .course-level select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 5px;
+        }
+        .course-intro {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+       footer {
+            text-align: center;
+            background-color: #6200ea;
+            color: white;
+            padding: 5px 0;
+            position: fixed;
+            bottom: -100px; 
+            left: 0;
+            right: 0;
+            width: 100%;
+            transition: bottom 0.5s; 
+        }
+        footer.visible {
+            bottom: 0; 
+        }
+        section {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Cours</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="1Official_code.html">Accueil</a>
+        <a href="3Cours_site.html">Cours</a>
+        <a href="4Dictionnaire_site.html">Dictionnaires</a>
+        <a href="5Traduction_site.html">Traductions</a>
+        <a href="6À_propos_site.html">À propos</a>
+        <a href="7Contact_site.html">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <section id="cours">
+            <h2>Nos Cours</h2>
+
+            <!-- Menu déroulant pour choisir le niveau -->
+            <div class="course-level">
+                <label for="course-level">Choisissez votre niveau :</label>
+                <select id="course-level">
+                    <option value="beginner">Débutant</option>
+                    <option value="intermediate">Intermédiaire</option>
+                    <option value="advanced">Avancé</option>
+                </select>
+            </div>
+
+            <!-- Introduction aux Cours -->
+            <div class="course-intro">
+                <p>Découvrez nos cours en ligne adaptés à chaque niveau. Que vous débutiez, souhaitiez perfectionner vos compétences ou atteindre un niveau avancé, vous trouverez des ressources pour progresser.</p>
+            </div>
+        </section>
+
+       
+    </div>
+
+    <footer id="footer">
+        <p>&copy; ykoB 2024. Produit malgasy, par des malagasy à Antananarivo.</p>
+        <p>Fitiavana, Tanindrazana, Fandrosoana</p>
+    </footer>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            const footer = document.getElementById("footer");
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollTop + windowHeight >= documentHeight) {
+                footer.classList.add("visible"); 
+            } else {
+                footer.classList.remove("visible"); 
+            }
+        });
+    </script>
+    <script>
+        const selectElement = document.getElementById("course-level");
+
+        selectElement.addEventListener("change", function() {
+            const level = selectElement.value;
+            let message = "";
+
+            if (level === "beginner") {
+                message = "Vous avez sélectionné le niveau Débutant. Ce niveau est conçu pour ceux qui débutent dans l'apprentissage de la langue malgache.";
+            } else if (level === "intermediate") {
+                message = "Vous avez sélectionné le niveau Intermédiaire. Ce niveau est pour ceux qui ont déjà des bases en malgache et souhaitent améliorer leur compétence.";
+            } else if (level === "advanced") {
+                message = "Vous avez sélectionné le niveau Avancé. Ce niveau est pour les apprenants ayant une bonne maîtrise de la langue malgache et souhaitant aller plus loin.";
+            }
+
+            alert(message);  // Affiche un message d'alerte avec le niveau sélectionné
+        });
+    </script>
+
+</body>
+</html>

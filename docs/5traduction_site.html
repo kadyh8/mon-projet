@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fianarana Teny Malagasy - Traduction et Cours</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #3700b3;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            max-width: 800px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .translation-container {
+            display: flex;
+            flex-direction: column;
+        }
+        select, textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #3700b3;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6200ea;
+        }
+       footer {
+            text-align: center;
+            background-color: #6200ea;
+            color: white;
+            padding: 5px 0;
+            position: fixed;
+            bottom: -100px; 
+            left: 0;
+            right: 0;
+            width: 100%;
+            transition: bottom 0.5s; 
+        }
+        footer.visible {
+            bottom: 0; 
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Apprenez et Traduisez</h1>
+    </header>
+
+    <nav>
+       <a href="1Official_code.html">Accueil</a>
+        <a href="3Cours_site.html">Cours</a>
+        <a href="4Dictionnaire_site.html">Dictionnaires</a>
+        <a href="5Traduction_site.html">Traductions</a>
+        <a href="6À_propos_site.html">À propos</a>
+        <a href="7Contact_site.html">Contact</a>
+    </nav>
+
+    <div class="container">
+     
+
+        <!-- Section Traduction -->
+        <section id="traduction" class="section">
+            <h2>Traduction en ligne</h2>
+            <div class="translation-container">
+                <!-- Sélection des langues -->
+                <label for="source-language">Langue source:</label>
+                <select id="source-language">
+                    <option value="fr">Français</option>
+                    <option value="mg">Malagasy</option>
+                    <option value="en">Anglais</option>
+                    <option value="es">Espagnol</option>
+                    <option value="de">Allemand</option>
+                </select>
+
+                <label for="target-language">Langue cible:</label>
+                <select id="target-language">
+                    <option value="mg">Malagasy</option>
+                    <option value="fr">Français</option>
+                    <option value="en">Anglais</option>
+                    <option value="es">Espagnol</option>
+                    <option value="de">Allemand</option>
+                </select>
+
+                <!-- Zone de texte pour entrer le texte à traduire -->
+                <label for="source-text">Texte à traduire:</label>
+                <textarea id="source-text" placeholder="Entrez le texte à traduire"></textarea>
+
+                <!-- Bouton de traduction -->
+                <button onclick="translateText()">Traduire</button>
+
+                <!-- Zone pour afficher le texte traduit -->
+                <label for="translated-text">Texte traduit:</label>
+                <textarea id="translated-text" readonly placeholder="Le texte traduit s'affichera ici"></textarea>
+            </div>
+        </section>
+    </div>
+
+     <footer id="footer">
+       <p>&copy; ykoB 2024. Produit malgasy, par des malagasy à Antananarivo.</p>
+        <p>Fitiavana, Tanindrazana, Fandrosoana</p>
+    </footer>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            const footer = document.getElementById("footer");
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollTop + windowHeight >= documentHeight) {
+                footer.classList.add("visible"); 
+            } else {
+                footer.classList.remove("visible"); 
+            }
+        });
+    </script>
+    <script>
+        // Fonction de traduction simulée (pouvant être remplacée par une API de traduction réelle)
+        function translateText() {
+            const sourceLanguage = document.getElementById("source-language").value;
+            const targetLanguage = document.getElementById("target-language").value;
+            const sourceText = document.getElementById("source-text").value;
+            
+            // Vérifier si du texte a été entré
+            if (sourceText.trim() === "") {
+                alert("Veuillez entrer du texte à traduire.");
+                return;
+            }
+
+            // Simuler une traduction (pour l'exemple, simplement renvoyer le même texte dans une autre langue)
+            let translatedText = `Traduction de "${sourceText}" (${sourceLanguage} vers ${targetLanguage})`;
+
+            // Remplacer le texte traduit
+            document.getElementById("translated-text").value = translatedText;
+        }
+    </script>
+
+</body>
+</html>

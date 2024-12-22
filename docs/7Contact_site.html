@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Fianarana teny malagasy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: #333;
+        }
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #3700b3;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .about-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .about-section h2 {
+            font-size: 32px;
+            color: #6200ea;
+        }
+        .about-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .team-section {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+        .team-member {
+            text-align: center;
+            max-width: 250px;
+        }
+        .team-member img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .team-member h3 {
+            font-size: 20px;
+            color: #6200ea;
+        }
+        .team-member p {
+            font-size: 16px;
+            color: #666;
+        }
+        footer {
+            text-align: center;
+            background-color: #6200ea;
+            color: white;
+            padding: 5px 0;
+            position: fixed;
+            bottom: -100px; 
+            left: 0;
+            right: 0;
+            width: 100%;
+            transition: bottom 0.5s; 
+        }
+        footer.visible {
+            bottom: 0; 
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Contact</h1>
+    </header>
+
+    <nav>
+        <a href="1Official_code.html">Accueil</a>
+        <a href="3Cours_site.html">Cours</a>
+        <a href="4Dictionnaire_site.html">Dictionnaires</a>
+        <a href="5Traduction_site.html">Traductions</a>
+        <a href="6À_propos_site.html">À propos</a>
+        <a href="7Contact_site.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section class="about-section" id="apropos">
+            <h2>Notre Mission</h2>
+            <p>Fianarana Teny Gasy est une plateforme éducative dédiée à l'apprentissage de la langue malgache. Que vous soyez débutant ou que vous souhaitiez approfondir vos connaissances de cette langue riche, notre objectif est de rendre l'apprentissage accessible à tous, tout en célébrant la culture malgache.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>Qui sommes-nous ?</h2>
+            <p>Nous sommes une équipe passionnée de linguistes, d'enseignants et de développeurs, unis par la volonté de promouvoir la langue malgache à travers des outils éducatifs modernes et interactifs. Nous croyons en l'importance d'une éducation accessible à tous pour préserver et diffuser la culture malgache à travers le monde.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>Nos Valeurs</h2>
+            <ul>
+                <li><strong>Accessibilité :</strong> Nous nous engageons à rendre l'apprentissage de la langue malgache facile et disponible pour tous.</li>
+                <li><strong>Inclusion :</strong> Nous valorisons la diversité et veillons à ce que notre contenu soit accessible à tous, indépendamment de l'origine ou du niveau de compétence.</li>
+                <li><strong>Innovation :</strong> Nous croyons en l'innovation pédagogique pour offrir des outils modernes et interactifs adaptés aux besoins des apprenants.</li>
+            </ul>
+        </section>
+
+        <section class="team-section">
+            <div class="team-member">
+                <img src="https://via.placeholder.com/150" alt="Membre de l'équipe">
+                <h3>John Doe</h3>
+                <p>Fondateur et Linguiste</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/150" alt="Membre de l'équipe">
+                <h3>Jane Smith</h3>
+                <p>Développeuse et Designer</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/150" alt="Membre de l'équipe">
+                <h3>Robert Brown</h3>
+                <p>Expert en pédagogie</p>
+            </div>
+        </section>
+    </div>
+
+    <footer id="footer">
+       <p>&copy; ykoB 2024. Produit malgasy, par des malagasy à Antananarivo.</p>
+        <p>Fitiavana, Tanindrazana, Fandrosoana</p>
+    </footer>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            const footer = document.getElementById("footer");
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollTop + windowHeight >= documentHeight) {
+                footer.classList.add("visible"); 
+            } else {
+                footer.classList.remove("visible"); 
+            }
+        });
+    </script>
+
+</body>
+</html>

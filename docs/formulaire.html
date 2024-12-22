@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'inscription et de connexion</title>
+    <style>
+        /* styles.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 48%;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .tab.active {
+            background-color: #007BFF;
+            color: white;
+            border-color: #007BFF;
+        }
+
+        .form {
+            display: none;
+        }
+
+        .form.active {
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Onglets -->
+        <div class="tabs">
+            <button id="signupTab" class="tab active" onclick="showForm('signup')">S'inscrire</button>
+            <button id="loginTab" class="tab" onclick="showForm('login')">Se connecter</button>
+        </div>
+
+        <!-- Formulaire d'inscription -->
+        <div id="signupForm" class="form active">
+            <h2>Inscription</h2>
+            <form id="signupFormElement">
+                <label for="signupName">Nom</label>
+                <input type="text" id="signupName" name="name" placeholder="Entrez votre nom" required>
+
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" name="email" placeholder="Entrez votre email" required>
+
+                <label for="signupPassword">Mot de passe</label>
+                <input type="password" id="signupPassword" name="password" placeholder="Entrez votre mot de passe" required>
+
+                <button type="submit">S'inscrire</button>
+            </form>
+        </div>
+
+        <!-- Formulaire de connexion -->
+        <div id="loginForm" class="form">
+            <h2>Connexion</h2>
+            <form id="loginFormElement">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" name="email" placeholder="Entrez votre email" required>
+
+                <label for="loginPassword">Mot de passe</label>
+                <input type="password" id="loginPassword" name="password" placeholder="Entrez votre mot de passe" required>
+
+                <button type="submit">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour afficher les formulaires
+        function showForm(formType) {
+            document.getElementById('signupForm').classList.remove('active');
+            document.getElementById('loginForm').classList.remove('active');
+            document.getElementById('signupTab').classList.remove('active');
+            document.getElementById('loginTab').classList.remove('active');
+
+            if (formType === 'signup') {
+                document.getElementById('signupForm').classList.add('active');
+                document.getElementById('signupTab').classList.add('active');
+            } else {
+                document.getElementById('loginForm').classList.add('active');
+                document.getElementById('loginTab').classList.add('active');
+            }
+        }
+
+        // Gestion du formulaire d'inscription
+        document.getElementById('signupFormElement').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+
+            // Log des données envoyées
+            console.log('Données envoyées (inscription):', { name, email, password });
+
+            const response = await fetch('http://localhost:3000/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, password }),
+            });
+
+            // Log de la réponse reçue
+            console.log('Réponse reçue (inscription):', response);
+
+            const result = await response.text();
+            alert(result);
+        });
+
+        // Gestion du formulaire de connexion
+        document.getElementById('loginFormElement').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Log des données envoyées
+            console.log('Données envoyées (connexion):', { email, password });
+
+            const response = await fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            // Log de la réponse reçue
+            console.log('Réponse reçue (connexion):', response);
+
+            const result = await response.text();
+            alert(result);
+        });
+
+        // Afficher le formulaire d'inscription par défaut
+        showForm('signup');
+    </script>
+</body>
+</html>

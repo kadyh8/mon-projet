@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionnaire - Fianarana Teny Malagasy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #3700b3;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .search-box {
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .search-box button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: #6200ea;
+            color: white;
+            border: none;
+        }
+        .search-box button:hover {
+            background-color: #3700b3;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f4f4f9;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .results h3 {
+            color: #6200ea;
+        }
+       footer {
+            text-align: center;
+            background-color: #6200ea;
+            color: white;
+            padding: 5px 0;
+            position: fixed;
+            bottom: -100px; 
+            left: 0;
+            right: 0;
+            width: 100%;
+            transition: bottom 0.5s; 
+        }
+        footer.visible {
+            bottom: 0; 
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Dictionnaire </h1>
+    </header>
+
+    <nav>
+        <a href="1Official_code.html">Accueil</a>
+        <a href="3Cours_site.html">Cours</a>
+        <a href="4Dictionnaire_site.html">Dictionnaires</a>
+        <a href="5Traduction_site.html">Traductions</a>
+        <a href="6À_propos_site.html">À propos</a>
+        <a href="7Contact_site.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="dictionnaires">
+            <h2>Rechercher un mot</h2>
+            <div class="search-box">
+                <input type="text" id="wordInput" placeholder="Entrez un mot à rechercher...">
+                <button onclick="searchWord()">Rechercher</button>
+            </div>
+            
+            <div class="results" id="resultsContainer">
+                <!-- Les résultats seront affichés ici -->
+            </div>
+        </section>
+    </div>
+
+     <footer id="footer">
+       <p>&copy; ykoB 2024. Produit malgasy, par des malagasy à Antananarivo.</p>
+        <p>Fitiavana, Tanindrazana, Fandrosoana</p>
+    </footer>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            const footer = document.getElementById("footer");
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollTop + windowHeight >= documentHeight) {
+                footer.classList.add("visible"); 
+            } else {
+                footer.classList.remove("visible"); 
+            }
+        });
+    </script>
+
+    <script>
+        function searchWord() {
+            const word = document.getElementById("wordInput").value.trim();
+            const resultsContainer = document.getElementById("resultsContainer");
+
+            if (word === "") {
+                resultsContainer.innerHTML = "<p>Veuillez entrer un mot pour effectuer la recherche.</p>";
+                return;
+            }
+
+            // Ici, vous pouvez ajouter des recherches simulées ou intégrer une API de dictionnaire.
+            // Exemple simple : si le mot est "bonjour", afficher une définition.
+            if (word.toLowerCase() === "bonjour") {
+                resultsContainer.innerHTML = `
+                    <h3>Bonjour (Français)</h3>
+                    <p>Une salutation utilisée pour dire "salut" ou "bonjour" à quelqu'un.</p>
+                    <p>Exemple : <em>Bonjour, comment ça va ?</em></p>
+                `;
+            } else if (word.toLowerCase() === "maison") {
+                resultsContainer.innerHTML = `
+                    <h3>Maison (Français)</h3>
+                    <p>Un lieu où une personne vit. Une structure pour abriter des personnes ou des animaux.</p>
+                    <p>Exemple : <em>Ma maison est grande et confortable.</em></p>
+                `;
+            } else {
+                resultsContainer.innerHTML = "<p>Aucun résultat trouvé pour ce mot.</p>";
+            }
+        }
+    </script>
+
+</body>
+</html>

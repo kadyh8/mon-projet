@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fianarana Teny Malagasy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            display: flex;
+        }
+        header img {
+            width: 70px;  
+            height: 70px; 
+            margin-right: 20px; 
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #3700b3;
+            padding: 10px 0;
+            position: relative;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .course {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+        .course h3 {
+            margin: 0;
+            color: #6200ea;
+        }
+        footer {
+            text-align: center;
+            background-color: #6200ea;
+            color: white;
+            padding: 5px 0;
+            position: fixed;
+            bottom: -100px; 
+            left: 0;
+            right: 0;
+            width: 100%;
+            transition: bottom 0.5s; 
+        }
+        footer.visible {
+            bottom: 0; 
+        }
+       .signup-btn {
+            position: absolute;
+            top: 25px; /* Aligne le bouton au niveau du titre */
+            right: 20px; /* Positionne le bouton à droite */
+            padding: 10px 20px;
+            background-color: #3700b3;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            z-index: 10; /* Assurez-vous que le bouton soit au-dessus des autres éléments */
+        }
+
+        .signup-btn:hover {
+            background-color: #6200ea;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo"/>
+        <h1>YKOB</h1>
+        <a href="formulaire.html" class="signup-btn">Inscrivez-vous maintenant</a>
+    </header>
+    <nav>
+        <a href="1Official_code.html">Accueil</a>
+        <a href="3Cours_site.html">Cours</a>
+        <a href="4Dictionnaire_site.html">Dictionnaires</a>
+        <a href="5Traduction_site.html">Traductions</a>
+        <a href="6À_propos_site.html">À propos</a>
+        <a href="7Contact_site.html">Contact</a>
+        
+    </nav>
+    <div class="container">
+        <section id="accueil">
+        	<p>Bienvenue sur notre plateforme dédiée à l'apprentissage du malgache. Que vous soyez étudiant, professionnel, ou simplement passionné par les langues, nous vous offrons des outils adaptés pour apprendre le malgache à votre propre rythme. Grâce à des leçons interactives, des enregistrements audio de locuteurs natifs et des jeux éducatifs, vous améliorerez rapidement vos compétences linguistiques.</p>
+            <h2>C'est pour qui ?</h2>
+            <p>Notre plateforme est conçue pour tous ceux qui souhaitent apprendre une nouvelle langue, améliorer leurs compétences linguistiques ou découvrir la richesse de la langue malgache. Que vous soyez étudiant, professionnel ou simplement curieux, nos ressources sont adaptées à vos besoins.</p>
+            <h2>Comment ça marche ?</h2>
+            <p>Notre plateforme est simple à utiliser. Voici comment ça fonctionne en quelques étapes :
+			<ul>
+			<li>Choisissez un mot ou une phrase à apprendre.</li>
+			<li>Écoutez des enregistrements audio de locuteurs natifs pour vous familiariser avec la prononciation.</li>
+			<li>Pratiquez avec des jeux et des quiz interactifs pour tester vos connaissances.</li>
+			<li>Suivez vos progrès et recevez des recommandations personnalisées pour améliorer votre apprentissage.</li>
+			</ul>
+            </p>
+       		<h2>Avantages clés du site</h2>
+			<p> 
+			<ul>
+			<li>Cours interactifs : Nos leçons sont conçues pour être à la fois éducatives et divertissantes, avec des exercices pratiques pour renforcer votre vocabulaire et vos compétences en grammaire.</li>
+			<li>Tests et jeux : Évaluez vos progrès à travers des jeux et des quiz adaptés à votre niveau, tout en vous amusant et en renforçant votre mémoire.</li>
+			<li>Accessibilité : Apprenez à tout moment, où que vous soyez, grâce à une plateforme accessible sur ordinateur et mobile.</li>
+			<li>Suivi de progression : Suivez votre évolution au fil du temps et restez motivé avec des rapports détaillés sur vos performances.</li>
+			</ul>
+			</p>
+			<p>Prêt à commencer votre aventure d'apprentissage du malgache ?</p>
+			<p>Inscrivez-vous dès aujourd'hui et accédez à des cours complets, des jeux éducatifs et un suivi personnalisé.</p>
+			<p>Cliquez ici pour créer votre compte et démarrer votre essai gratuit dès maintenant !</p>
+			</p>
+        </section>
+    </div>
+     <footer id="footer">
+        <p>&copy; ykoB 2024. Produit malgasy, par des malagasy à Antananarivo.</p>
+        <p>Fitiavana, Tanindrazana, Fandrosoana</p>
+    </footer>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            const footer = document.getElementById("footer");
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            if (scrollTop + windowHeight >= documentHeight) {
+                footer.classList.add("visible"); 
+            } else {
+                footer.classList.remove("visible"); 
+            }
+        });
+    </script>
+</body>
+</html>
